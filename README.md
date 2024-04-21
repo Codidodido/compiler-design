@@ -40,3 +40,33 @@ We can end up with these results:
 
 Examples: 
 `[ab], [bab], [bbab], [bbbab], [baaab], [baabab], [baabaabbab], [babaaabbbab]`
+
+## How to use?
+
+Good Question!
+
+First of all, clone this repository by: 
+```cmd
+git clone https://github.com/Codidodido/compiler-design.git
+```
+
+- #### How to create a machine:
+    ```python
+    # machine = {state:[[next-state,char],...],...}
+    # example: 
+    machine = {0:[[1,'a'],[0,'b']],1:[[0,'a'],[2,'b']],2:[[0,'a'],"end"]}
+    ```
+    !: Accept state has "end" value
+
+- #### How to use DFA module:
+    ```python
+    import DFA
+
+    # DFA.dfa(machine,exp)
+
+    machine = {0:[[1,'a'],[0,'b']],1:[[0,'a'],[2,'b']],2:[[0,'a'],"end"]}
+    exp = "babaaabbbab"
+    exp2 = "babaaabbbaba"
+    print(DFA.dfa(machine,exp)) # True
+    print(DFA.dfa(machine,exp2)) # False
+    ```
