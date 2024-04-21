@@ -15,3 +15,28 @@ As I'm still compiler class student, content of this repository will update with
 
 - ### What is compiler?
 - Compiler is a program that translates high language codes into instructions that can be undrestood by CPU.
+
+## What is DFA ?
+
+`DFA = Deterministic Finite Automata`
+
+DFA is a machine that create determinited finite expressions.
+
+Each machine is composed of States. Each States specifies what can be made by machine. Also there is one or more accept states which can accept the created word. If expression ends outside of accept state, machine returns error.
+
+Look at below picture:
+
+<img src="DFA.png">
+
+This machine starts with state 0. 
+On `state 0`, by 'a' moves to state 1 and by 'b' stay on itself.
+On `state 1`, by 'a' moves to state 0 and by 'b' moves to state 2.
+On `state 2`, it can accept the expression or back to state 0 by 'a'.
+
+We can end up with these results:
+- This machine could start with infinite b or just a.
+- Machine could return back to state 0 if starts with a.
+- This machine accepts the expressions which are end with ab.
+
+Examples: 
+`[ab], [bab], [bbab], [bbbab], [baaab], [baabab], [baabaabbab], [babaaabbbab]`
