@@ -11,3 +11,7 @@ Useful for:
 
 As I'm still compiler class student, content of this repository will update with my knowledge progress. So, be my guest, take your sit and enjoy your journey.
 
+## Warm Up
+
+- ### What is compiler?
+- Compiler is a program that translates high language codes into instructions that can be undrestood by CPU.
