@@ -31,15 +31,15 @@ Look at below picture:
 This machine starts with state 0. 
 On `state 0`, by 'a' moves to state 1 and by 'b' stay on itself.
 On `state 1`, by 'a' moves to state 0 and by 'b' moves to state 2.
-On `state 2`, it can accept the expression or back to state 0 by 'a'.
+On `state 2`, it can accepts the expression . Also it can backs to state 0 by 'a' or backs to state 1 by 'b'.
 
 We can end up with these results:
 - This machine could start with infinite b or just a.
 - Machine could return back to state 0 if starts with a.
-- This machine accepts the expressions which are end with ab.
+- This machine accepts the expressions which are end with ab or bb.
 
 Examples: 
-`[ab], [bab], [bbab], [bbbab], [baaab], [baabab], [baabaabbab], [babaaabbbab]`
+`[ab], [bab], [bbab], [bbbab], [baaab], [baabab], [baabaabbab], [babaaabbbabbb]`
 
 ## How to use?
 
@@ -54,7 +54,7 @@ git clone https://github.com/Codidodido/compiler-design.git
     ```python
     # machine = {state:[[next-state,char],...],...}
     # example: 
-    machine = {0:[[1,'a'],[0,'b']],1:[[0,'a'],[2,'b']],2:[[0,'a'],"end"]}
+    machine = {0:[[1,'a'],[0,'b']],1:[[0,'a'],[2,'b']],2:[[0,'a'],[1,'b'],"end"]}
     ```
     !: Accept state has "end" value
 
@@ -64,7 +64,7 @@ git clone https://github.com/Codidodido/compiler-design.git
 
     # DFA.dfa(machine,exp)
 
-    machine = {0:[[1,'a'],[0,'b']],1:[[0,'a'],[2,'b']],2:[[0,'a'],"end"]}
+    machine = {0:[[1,'a'],[0,'b']],1:[[0,'a'],[2,'b']],2:[[0,'a'],[1,'b'],"end"]}
     exp = "babaaabbbab"
     exp2 = "babaaabbbaba"
     print(DFA.dfa(machine,exp)) # True
